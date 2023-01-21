@@ -5,233 +5,67 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sample HTML Code - NewsLetter Form</title>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-
-    body {
-      display: flex;
-      justify-content: center;
-      padding: 3rem 0;
-      font-family: "Poppins", sans-serif;
-      font-size: 1rem;
-      color: white;
-      background-color: #ff7a7a;
-    }
-
-    main {
-      max-width: 350px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .intro {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      width: 100%;
-      margin-bottom: 3rem;
-    }
-
-    .title {
-      padding: 1rem;
-      font-size: 1.75rem;
-    }
-
-    .sign-up {
-      width: 100%;
-    }
-
-    .sign-up-para {
-      padding: 1rem 5rem;
-      margin-bottom: 1.75rem;
-      border-radius: 0.8rem;
-      box-shadow: 0 8px 0px rgba(0 0 0/0.15);
-      background-color: #7138cc;
-      text-align: center;
-    }
-
-    .sign-up-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1.2rem;
-      border-radius: 0.8rem;
-      box-shadow: 0 8px 0px rgba(0 0 0/0.15);
-      color: #b9b6d3;
-      background-color: white;
-    }
-
-    .form-input {
-      width: 100%;
-      margin-bottom: 1em;
-      position: relative;
-    }
-
-    .form-input span {
-      position: absolute;
-      top: 10%;
-      right: 0;
-      padding: 0 0.65em;
-      border-radius: 50%;
-      background-color: #ff7a7a;
-      color: white;
-      display: none;
-    }
-
-    .form-input.warning span {
-      display: inline-block;
-    }
-
-    .form-input input {
-      width: calc(100% - 20px);
-      padding: 10px;
-      border: 2px solid rgba(185, 182, 211, 0.25);
-      border-radius: 0.5em;
-      font-weight: 600;
-      color: #3e3c49;
-    }
-
-    .form-input input:focus {
-      outline: none;
-      border: 2px solid #b9b6d3;
-    }
-
-    .form-input.warning input {
-      border: 2px solid #ff7a7a;
-    }
-
-    .form-input p {
-      margin: 0.2em 0.75em 0 0;
-      display: none;
-      font-size: 0.75rem;
-      text-align: right;
-      font-style: italic;
-      color: #ff7a7a;
-    }
-
-    .form-input.warning p {
-      display: block;
-    }
-
-    .submit-btn {
-      cursor: pointer;
-      width: 100%;
-      padding: 1em;
-      margin-bottom: 1em;
-      border: none;
-      border-bottom: 5px solid #31bf81;
-      border-radius: 0.5em;
-      background-color: #38cc8c;
-      color: white;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .submit-btn:hover {
-      background-color: #5dd5a1;
-    }
-
-    .form-term {
-      margin-bottom: 0.75em;
-      font-size: 0.8rem;
-      text-align: center;
-    }
-
-    .form-term span {
-      font-weight: 700;
-      color: #ff7a7a;
-    }
-    
-    @media (min-width: 768px) {
-      body {
-        align-items: center;
-        min-height: 100vh;
-      }
-
-      main {
-        max-width: 100vw;
-        flex-direction: row;
-        justify-content: center;
-      }
-
-      .intro {
-        align-items: flex-start;
-        text-align: left;
-        width: 45%;
-        margin-right: 1rem;
-      }
-
-      .title {
-        padding: 0;
-        margin-bottom: 2rem;
-        font-size: 3rem;
-        line-height: 1.25em;
-      }
-
-      .sign-up {
-        width: 45%;
-      }
-
-      .sign-up-form {
-        padding: 1.75rem;
-      }
-
-      .sign-up-form input {
-        padding-left: 1.5em;
-      }
-    }
-  </style>
+  <title>Simple HTML HomePage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
+  <header class="header">
+    <a href="#" class="logo">DevOps</a>
+    <nav class="nav-items">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
   <main>
-    <!-- intro section -->
-    <section class="intro">
-      <h1 class="title">Paradigm IT Solutions LLC</h1>
-      <p>We are cloud focus and automation ready</p>
-    </section>
-
-    <!-- sign-up section -->
-    <section class="sign-up">
-      <p class="sign-up-para">Put your Company in the Cloud and get a step ahead of the game</p>
-      <!-- the form itself -->
-      <form class="sign-up-form">
-        <div class="form-input">
-          <input type="text" name="first-name" id="first-name" placeholder="First Name" required>
-          <span>!</span>
-          <p class="warning">First name cannot be empty</p>
-        </div>
-
-        <div class="form-input">
-          <input type="text" name="last-name" id="last-name" placeholder="Last Name" required>
-          <span>!</span>
-          <p class="warning">Last name cannot be empty</p>
-        </div>
-
-        <div class="form-input">
-          <input type="email" name="email" id="email" placeholder="Email Address" required>
-          <span>!</span>
-          <p class="warning">Looks like this is not an email</p>
-        </div>
-
-        <div class="form-input">
-          <input type="Password" name="Password" id="Password" placeholder="Password" required>
-          <span>!</span>
-          <p class="warning">Password cannot be empty</p>
-        </div>
-
-        <input class="submit-btn" type="submit" value="Claim your offer">
-        <p class="form-term">By clicking the button, you are agreeing to our <span>Terms and Services</span> </p>
-      </form>
-    </section>
+    <div class="intro">
+      <h1>Paradigm IT Solutions LLC</h1>
+      <p>I am DevOps Engineer and I love to create websites.</p>
+      <button>Learn More</button>
+    </div>
+    <div class="achievements">
+      <div class="work">
+        <i class="fas fa-atom"></i>
+        <p class="work-heading">Projects</p>
+        <p class="work-text">I have worked on many projects and I am very proud of them. I am a very good DevOps and I am always looking for new projects.</p>
+      </div>
+      <div class="work">
+        <i class="fas fa-skiing"></i>
+        <p class="work-heading">Skills</p>
+        <p class="work-text">I have a lot of skills and I am very good at them. I am very good at programming and I am always looking for new skills.</p>
+      </div>
+      <div class="work">
+        <i class="fas fa-ethernet"></i>
+        <p class="work-heading">Network</p>
+        <p class="work-text">I have a lot of network skills and I am very good at them. I am very good at networking and I am always looking for new network skills.</p>
+      </div>
+    </div>
+    <div class="about-me">
+      <div class="about-me-text">
+        <h2>About Me</h2>
+        <p>I am Paradigm IT Solutions LLC and I love to create websites. I am a very good DevOps and I am always looking for new projects. I am a very good DevOps and I am always looking for new projects.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" alt="me">
+    </div>
   </main>
+  <footer class="footer">
+    <div class="copy">© 2022 DevOps</div>
+    <div class="bottom-links">
+      <div class="links">
+        <span>More Info</span>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="links">
+        <span>Social Links</span>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
-
-
-

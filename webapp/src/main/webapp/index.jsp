@@ -1,234 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sample HTML Code - NewsLetter Form</title>
+  <title>Paradigm IT Solutions LLC</title>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-
+    /* Add some color to the website */
     body {
-      display: flex;
-      justify-content: center;
-      padding: 3rem 0;
-      font-family: "Poppins", sans-serif;
-      font-size: 1rem;
-      color: white;
-      background-color: #ff7a7a;
+      background-color: #f2f2f2;
     }
 
-    main {
-      max-width: 350px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .intro {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      width: 100%;
-      margin-bottom: 3rem;
-    }
-
-    .title {
-      padding: 1rem;
-      font-size: 1.75rem;
-    }
-
-    .sign-up {
-      width: 100%;
-    }
-
-    .sign-up-para {
-      padding: 1rem 5rem;
-      margin-bottom: 1.75rem;
-      border-radius: 0.8rem;
-      box-shadow: 0 8px 0px rgba(0 0 0/0.15);
-      background-color: #7138cc;
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
       text-align: center;
     }
 
-    .sign-up-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1.2rem;
-      border-radius: 0.8rem;
-      box-shadow: 0 8px 0px rgba(0 0 0/0.15);
-      color: #b9b6d3;
-      background-color: white;
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
     }
 
-    .form-input {
-      width: 100%;
-      margin-bottom: 1em;
-      position: relative;
+    section {
+      padding: 20px;
     }
 
-    .form-input span {
-      position: absolute;
-      top: 10%;
-      right: 0;
-      padding: 0 0.65em;
-      border-radius: 50%;
-      background-color: #ff7a7a;
-      color: white;
-      display: none;
-    }
-
-    .form-input.warning span {
-      display: inline-block;
-    }
-
-    .form-input input {
-      width: calc(100% - 20px);
-      padding: 10px;
-      border: 2px solid rgba(185, 182, 211, 0.25);
-      border-radius: 0.5em;
-      font-weight: 600;
-      color: #3e3c49;
-    }
-
-    .form-input input:focus {
-      outline: none;
-      border: 2px solid #b9b6d3;
-    }
-
-    .form-input.warning input {
-      border: 2px solid #ff7a7a;
-    }
-
-    .form-input p {
-      margin: 0.2em 0.75em 0 0;
-      display: none;
-      font-size: 0.75rem;
-      text-align: right;
-      font-style: italic;
-      color: #ff7a7a;
-    }
-
-    .form-input.warning p {
-      display: block;
-    }
-
-    .submit-btn {
-      cursor: pointer;
-      width: 100%;
-      padding: 1em;
-      margin-bottom: 1em;
+    /* Add some style to the buttons */
+    .btn {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
       border: none;
-      border-bottom: 5px solid #31bf81;
-      border-radius: 0.5em;
-      background-color: #38cc8c;
-      color: white;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .submit-btn:hover {
-      background-color: #5dd5a1;
-    }
-
-    .form-term {
-      margin-bottom: 0.75em;
-      font-size: 0.8rem;
-      text-align: center;
-    }
-
-    .form-term span {
-      font-weight: 700;
-      color: #ff7a7a;
-    }
-    
-    @media (min-width: 768px) {
-      body {
-        align-items: center;
-        min-height: 100vh;
-      }
-
-      main {
-        max-width: 100vw;
-        flex-direction: row;
-        justify-content: center;
-      }
-
-      .intro {
-        align-items: flex-start;
-        text-align: left;
-        width: 45%;
-        margin-right: 1rem;
-      }
-
-      .title {
-        padding: 0;
-        margin-bottom: 2rem;
-        font-size: 3rem;
-        line-height: 1.25em;
-      }
-
-      .sign-up {
-        width: 45%;
-      }
-
-      .sign-up-form {
-        padding: 1.75rem;
-      }
-
-      .sign-up-form input {
-        padding-left: 1.5em;
-      }
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
     }
   </style>
 </head>
-
 <body>
-  <main>
-    <!-- intro section -->
-    <section class="intro">
-      <h1 class="title">Paradigm IT Solutions LLC</h1>
-      <p>We are cloud focus and automation ready</p>
-    </section>
+  <!-- Navigation Bar -->
+  <header>
+    <h1>Paradigm IT Solutions LLC</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- sign-up section -->
-    <section class="sign-up">
-      <p class="sign-up-para">Put your Company in the Cloud and get a step ahead of the game</p>
-      <!-- the form itself -->
-      <form class="sign-up-form">
-        <div class="form-input">
-          <input type="text" name="first-name" id="first-name" placeholder="First Name" required>
-          <span>!</span>
-          <p class="warning">First name cannot be empty</p>
-        </div>
+  <!-- Home Page -->
+  <section id="home">
+    <h2>Welcome to Paradigm IT Solutions LLC</h2>
+    <p>We provide high-quality IT solutions to help businesses thrive in a digital world.</p>
+  </section>
 
-        <div class="form-input">
-          <input type="text" name="last-name" id="last-name" placeholder="Last Name" required>
-          <span>!</span>
-          <p class="warning">Last name cannot be empty</p>
-        </div>
+  <!-- Courses Page -->
+  <section id="courses">
+    <h2>Our Courses</h2>
+    <ul>
+      <li>Web Development</li>
+      <li>Data Science</li>
+      <li>Cybersecurity</li>
+    </ul>
+    <a href="#" class="btn">Learn More</a>
+  </section>
 
-        <div class="form-input">
-          <input type="email" name="email" id="email" placeholder="Email Address" required>
-          <span>!</span>
-          <p class="warning">Looks like this is not an email</p>
-        </div>
+  <!-- Dashboard Page -->
+  <section id="dashboard">
+    <h2>Dashboard</h2>
+    <p>This is the private dashboard for our clients. Login to access your account.</p>
+    <a href="#" class="btn">Login</a>
+  </section>
 
-        <div class="form-input">
-          <input type="Password" name="Password" id="Password" placeholder="Password" required>
-          <span>!</span>
-          <p class="warning">Password cannot be empty</p>
-        </div>
-
-        <input class="submit-btn" type="submit" value="Claim your offer">
-        <p class="form-term">By clicking the button, you are agreeing to our <span>Terms and Services</span> </p>
-      </form>
-    </section>
-  </main>
+  <!-- Contact Page -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <input type="submit" value="Submit" class="btn">
+    </form>
+  </section>
 </body>
-
 </html>

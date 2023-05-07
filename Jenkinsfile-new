@@ -1,0 +1,40 @@
+pipeline {
+  agent {
+    node { 
+      label 'slave'
+    } 
+  }
+  stages {
+    stage('ContinuesDownload') {
+      steps {
+        git 'https://github.com/mankinimbom/maven.git'
+      }
+    }
+    stage('ContinueBuild') {
+      steps {
+        sh 'mvn clean install -X package'
+      }
+    }
+    stage('CopyArtiFatctotestServer') {
+      steps {
+        deploy adapters: [tomcat9(credentialsId: 'fe5d098e-ac5b-4a3e-b521-2976432e100f', path: '', url: 'http://10.0.0.120:8080/')], contextPath: 'myapp', war: '**/*.war'
+      }
+    }
+    stage('ContinuesTestingArtifact') {
+      steps {
+        git 'https://github.com/mankinimbom/testingproject.git'
+        sh 'java -jar /home/mint/workspace/DPipline/testing.jar'
+      }
+    }
+    stage('ContinuesDeploymenttoTomcatserver') {
+      steps {
+        deploy adapters: [tomcat9(credentialsId: 'e49623cc-8130-408e-a881-17d029847267', path: '', url: 'http://10.0.0.76:8080/')], contextPath: 'myapp', war: '**/*.war'
+      }
+    }
+    stage('ContinuesMonitor') {
+      steps {
+        git 'https://github.com/mankinimbom/maven.git'
+      }
+    }
+  }
+}

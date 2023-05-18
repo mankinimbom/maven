@@ -6,7 +6,7 @@ pipeline {
     } 
   }
   stages {
-    stage('ContinuesDownloadCodeFromGitHubRepo') {
+    stage('CocheckOut') {
       steps {
         script{
           try {
@@ -14,7 +14,6 @@ pipeline {
           } catch(Exception e1) {
             mail bcc: '', body: 'Jenkins was unable to download the code from the GitHub repository', cc: 'ankinimbommichaely@gmail.com', from: '', replyTo: '', subject: 'Code Download failed', to: 'ankinimbommichaely@gmail.com'
             error("Git clone failed")
-            exit(1);
           }
         }
       }
@@ -27,12 +26,11 @@ pipeline {
           } catch(Exception e2) {
             mail bcc: '', body: 'Jenkins was unable to build the code', cc: 'ankinimbommichaely@gmail.com', from: '', replyTo: '', subject: 'Code Build failed', to: 'ankinimbommichaely@gmail.com'
             error("Maven build failed")
-            exit(1);
           }
         }
       }
     }
-    stage('CopyArtifactToTestServer') {
+    stage('CodeDeploy') {
       steps {
         script{
           try {
@@ -40,12 +38,11 @@ pipeline {
           } catch(Exception e3) {
             mail bcc: '', body: 'Jenkins was unable to deploy the code to tomcat QA', cc: 'ankinimbommichaely@gmail.com', from: '', replyTo: '', subject: 'Deploy to QA failed', to: 'ankinimbommichaely@gmail.com'
             error("Deployment to QA failed")
-            exit(1);
           }
         }
       }
     }
-    stage('ContinuesTestingArtifact') {
+    stage('CCodeTest') {
       steps {
         script{
           try {
@@ -54,12 +51,11 @@ pipeline {
           } catch(Exception e4) {
             mail bcc: '', body: 'Jenkins was unable to run the tests', cc: 'ankinimbommichaely@gmail.com', from: '', replyTo: '', subject: 'Code Testing failed', to: 'ankinimbommichaely@gmail.com'
             error("Testing failed")
-            exit(1);
           }
         }
       }
     }
-    stage('ContinuesDeployToTomcatServer') {
+    stage('CodeDelivery') {
       steps {
         script{
           try {
@@ -67,7 +63,6 @@ pipeline {
           } catch(Exception e5) {
             mail bcc: '', body: 'Jenkins was unable to deploy the build artifact to PROD', cc: 'ankinimbommichaely@gmail.com', from: '', replyTo: '', subject: 'Code Deploy to Prod failed', to: 'ankinimbommichaely@gmail.com'
             error("Deployment to PROD failed")
-            exit(1);
           }
         }
       }
@@ -80,7 +75,6 @@ pipeline {
           } catch(Exception e1) {
             mail bcc: '', body: 'Some activities are failing', cc: 'ankinimbommichaely@gmail.com', from: '', replyTo: '', subject: 'Code malfunctioning', to: 'ankinimbommichaely@gmail.com'
             error("Monitoring failed")
-            exit(1);
           }
         }
       }

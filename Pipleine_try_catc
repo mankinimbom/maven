@@ -11,7 +11,7 @@ pipeline
 				{
 				   try
 				   {
-                            git 'https://github.com/intelliqittrainings/maven.git'
+                            git 'https://github.com/mankinimbom/maven.git'
 				   }
 				   catch(Exception e1)
 				   {
@@ -65,7 +65,7 @@ pipeline
 				{
 				    try
 					{
-                         git 'https://github.com/selenium-saikrishna/FunctionalTesting.git'
+                         git 'https://github.com/mankinimbom/FunctionalTesting.git'
                          sh label: '', script: 'echo "Testing Passed"'  
                     }
 					catch(Exception e4)

@@ -6,7 +6,7 @@ pipeline {
     } 
   }
   stages {
-    stage('ContinuesDownload') {
+    stage('ContinuesDownloadCodeFromGitHubRepo') {
       steps {
         script{
           try {
@@ -14,6 +14,7 @@ pipeline {
           } catch(Exception e1) {
             mail bcc: '', body: 'Jenkins was unable to download the code from the GitHub repository', cc: 'ankinimbommichaely@gmail.com', from: '', replyTo: '', subject: 'Code Download failed', to: 'ankinimbommichaely@gmail.com'
             error("Git clone failed")
+            exit(1);
           }
         }
       }
@@ -23,9 +24,10 @@ pipeline {
         script{
           try {
             sh 'mvn clean install -X package'
-          } catch(Exception e1) {
+          } catch(Exception e2) {
             mail bcc: '', body: 'Jenkins was unable to build the code', cc: 'ankinimbommichaely@gmail.com', from: '', replyTo: '', subject: 'Code Build failed', to: 'ankinimbommichaely@gmail.com'
             error("Maven build failed")
+            exit(1);
           }
         }
       }
@@ -35,9 +37,10 @@ pipeline {
         script{
           try {
             deploy adapters: [tomcat9(credentialsId: 'fe5d098e-ac5b-4a3e-b521-2976432e100f', path: '', url: 'http://10.0.0.120:8080/')], contextPath: 'myapp', war: '**/*.war'
-          } catch(Exception e1) {
+          } catch(Exception e3) {
             mail bcc: '', body: 'Jenkins was unable to deploy the code to tomcat QA', cc: 'ankinimbommichaely@gmail.com', from: '', replyTo: '', subject: 'Deploy to QA failed', to: 'ankinimbommichaely@gmail.com'
             error("Deployment to QA failed")
+            exit(1);
           }
         }
       }
@@ -48,21 +51,23 @@ pipeline {
           try {
             git 'https://github.com/mankinimbom/testingproject.git'
             sh 'java -jar /home/mint/workspace/DeclarativePipe/testing.jar'
-          } catch(Exception e1) {
+          } catch(Exception e4) {
             mail bcc: '', body: 'Jenkins was unable to run the tests', cc: 'ankinimbommichaely@gmail.com', from: '', replyTo: '', subject: 'Code Testing failed', to: 'ankinimbommichaely@gmail.com'
             error("Testing failed")
+            exit(1);
           }
         }
       }
     }
-    stage('ContinuesDeploymentToTomcatServer') {
+    stage('ContinuesDeployToTomcatServer') {
       steps {
         script{
           try {
             deploy adapters: [tomcat9(credentialsId: 'e49623cc-8130-408e-a881-17d029847267', path: '', url: 'http://10.0.0.76:8080/')], contextPath: 'myapp', war: '**/*.war'
-          } catch(Exception e1) {
+          } catch(Exception e5) {
             mail bcc: '', body: 'Jenkins was unable to deploy the build artifact to PROD', cc: 'ankinimbommichaely@gmail.com', from: '', replyTo: '', subject: 'Code Deploy to Prod failed', to: 'ankinimbommichaely@gmail.com'
             error("Deployment to PROD failed")
+            exit(1);
           }
         }
       }
@@ -71,10 +76,11 @@ pipeline {
       steps {
         script{
           try {
-                        git 'https://github.com/mankinimbom/maven.git'
+            git 'https://github.com/mankinimbom/maven.git'
           } catch(Exception e1) {
             mail bcc: '', body: 'Some activities are failing', cc: 'ankinimbommichaely@gmail.com', from: '', replyTo: '', subject: 'Code malfunctioning', to: 'ankinimbommichaely@gmail.com'
             error("Monitoring failed")
+            exit(1);
           }
         }
       }

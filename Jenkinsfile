@@ -14,7 +14,7 @@ node('built-in')
     }
     stage('ContinuousDeployment')
     {
-        deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://4.227.254.138:8080')], contextPath: 'paradigm', war: '**/*.war'
+        deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://4.227.254.138:8083')], contextPath: 'paradigm', war: '**/*.war'
     }
     stage('ContinuousTesting')
     {
@@ -23,7 +23,7 @@ node('built-in')
     }
     stage('ContinuousDelivery')
     {
-            deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://4.227.254.138:8080')], contextPath: 'paradigm', war: '**/*.war'
+            deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://4.227.254.138:8083')], contextPath: 'paradigm', war: '**/*.war'
     }
     stage('ContinuousMonitor')
     {

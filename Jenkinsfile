@@ -10,16 +10,16 @@ node('built-in')
     }
     stage('ContinuousDeployment')
     {
-        deploy adapters: [tomcat9(credentialsId: 'd9e1af03-52ba-48b1-8b18-9082c2a62870', path: '', url: 'http://172.31.88.238:8080')], contextPath: 'testapp', war: '**/*.war'
+        deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://4.227.254.138:8080')], contextPath: 'paradigm', war: '**/*.war'
     }
     stage('ContinuousTesting')
     {
           git 'https://github.com/mankinimbom/testingproject.git'
-          sh 'java -jar /var/lib/jenkins/workspace/DevOps/testing.jar'
+          sh 'java -jar /var/lib/jenkins/workspace/tests/testing.jar'
     }
     stage('ContinuousDelivery')
     {
-            deploy adapters: [tomcat9(credentialsId: 'd9e1af03-52ba-48b1-8b18-9082c2a62870', path: '', url: 'http://172.31.88.238:8080')], contextPath: 'prodapp', war: '**/*.war'
+            deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://4.227.254.138:8080')], contextPath: 'paradigm', war: '**/*.war'
     }
     stage('ContinuousMonitor')
     {

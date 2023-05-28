@@ -8,7 +8,7 @@ node('built-in')
     {
         sh 'mvn package'
     }
-    stage('ContinuuousBuild')
+    stage('ArchiveArtifact')
     {
         archiveArtifacts artifacts: '**/*.war', followSymlinks: false
     }

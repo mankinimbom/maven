@@ -8,6 +8,10 @@ node('built-in')
     {
         sh 'mvn package'
     }
+    stage('ContinuuousBuild')
+    {
+        archiveArtifacts artifacts: '**/*.war', followSymlinks: false
+    }
     stage('ContinuousDeployment')
     {
         deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://4.227.254.138:8080')], contextPath: 'paradigm', war: '**/*.war'

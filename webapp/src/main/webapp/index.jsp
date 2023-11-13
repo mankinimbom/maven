@@ -191,7 +191,7 @@
   <main>
     <!-- intro section -->
     <section class="intro">
-      <h1 class="title">Paradigm IT Solutions LLC</h1>
+      <h1 class="title">ParadigmIT Solutions </h1>
       <p>We are cloud focus and automation ready</p>
     </section>
 
